@@ -47,5 +47,6 @@ events.create({
     email: "somethin4.@email.com",
 })
 
-console.log(events.read());
-//console.log(events.readOne(3));
+
+//console.log(events.read());
+console.log(events.readOne(1));

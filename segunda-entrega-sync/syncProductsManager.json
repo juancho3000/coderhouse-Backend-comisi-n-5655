@@ -1,5 +1,4 @@
 [
-  {},
   {
     "title": "dip belt",
     "locality": "calisthencis store",
@@ -7,7 +6,6 @@
     "price": 40,
     "stock": 20
   },
-  null,
   {
     "title": "lifting belt",
     "locality": "powerlifting store",

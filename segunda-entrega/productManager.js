@@ -29,14 +29,14 @@ const fs = require("fs")
 const ruta = "./segunda-entrega/eventsProductManager.json";
 const conetnt = JSON.stringify(
     [
-        {
+    events = new ProductManagerSecond, {
             title: "dip belt",
             locality: "calisthencis store",
             photo: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gymreapers.com%2Fproducts%2Fgymreapers-dip-belt&psig=AOvVaw38iY0Vcu3BophfrRVmSbF0&ust=1702525483229000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCOibj-e_i4MDFQAAAAAdAAAAABAF",
             price: 40,
             stock: 20,
         }, 
-        {
+       events.create, {
             title: "lifting belt",
             locality: "powerlifting store",
             photo: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.raiselower.co.nz%2Fproducts%2Fsbd-belt-2021&psig=AOvVaw3V-QpvxG7YE4ZG_paii7O1&ust=1702525525020000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKCuqPu_i4MDFQAAAAAdAAAAABAE",
@@ -57,4 +57,5 @@ fs.promises
 .readFile(ruta, configuracion)
 .then(res => console.log("productManager2",JSON.parse(res)))
 .catch(err => console.log(err));
+
 //message to check

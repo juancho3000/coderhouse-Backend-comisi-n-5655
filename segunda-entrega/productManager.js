@@ -57,3 +57,4 @@ fs.promises
 .readFile(ruta, configuracion)
 .then(res => console.log("productManager2",JSON.parse(res)))
 .catch(err => console.log(err));
+//message to check

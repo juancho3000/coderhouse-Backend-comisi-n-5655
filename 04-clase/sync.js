@@ -26,5 +26,10 @@ console.log(convertData);
 //leer archivos de forma 
 
 //eliminar archivos de manera sincrona
-
+//fs.unlinkSync(ruta)
 //eliminar archivos de manera sincrona
+
+//verificacion de archivo existente de manera sincrona
+const proof = fs.existsSync(ruta)
+console.log(proof);
+//verificacion de archivo existente de manera sincrona

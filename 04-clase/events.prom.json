@@ -1,0 +1,12 @@
+[
+  {
+    "title": "nevera",
+    "category": "electrodomesticos",
+    "price": "$500"
+  },
+  {
+    "title": "sofa",
+    "category": "muebles",
+    "price": "$130"
+  }
+]

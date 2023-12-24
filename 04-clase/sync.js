@@ -18,6 +18,8 @@ const info = JSON.stringify([
 fs.writeFileSync(ruta, info);
 //crear archivos sincronos
 
+
+
 //leer archivos de forma asincrona
 let configuracion = "utf-8"
 const dataReading = fs.readFileSync(ruta, configuracion);

@@ -21,7 +21,7 @@ class UserManagerSecond{
 }
 
 const fs = require("fs")
-const ruta = "./segunda-entrega/eventsUserManager.json";
+const ruta = "./server/data/fs/files/eventsUserManager.json";
 const conetnt = JSON.stringify(
     [
         events = new UserManagerSecond, {

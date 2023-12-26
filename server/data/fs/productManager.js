@@ -70,7 +70,7 @@ const threeId = user.readOne(3)
 console.log("mensaje de readOne",one, threeId)*/
 
 const fs = require("fs")
-const ruta = "./segunda-entrega/eventsProductManager.json";
+const ruta = "./server/data/fs/files/eventsProductManager.json";
 const events = new ProductManagerSecond
 const conetnt = JSON.stringify(
     [

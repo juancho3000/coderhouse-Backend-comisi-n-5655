@@ -1,0 +1,19 @@
+[
+  {
+    "id": "6979acef74b86802c504dff9",
+    "name": "house1",
+    "place": "urb",
+    "price": 10,
+    "capacity": 50,
+    "date": "2023-12-26T05:09:02.326Z"
+  },
+
+  {
+    "id": "16eba6ea9691f626c825a7e5",
+    "name": "apt1",
+    "place": "buildings",
+    "price": "$60000",
+    "capacity": "5",
+    "date": "2023-12-26T05:16:56.564Z"
+  }
+]

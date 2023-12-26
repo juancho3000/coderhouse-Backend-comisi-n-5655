@@ -1,1 +1,0 @@
-const sprint3 = console.log("sprint3");

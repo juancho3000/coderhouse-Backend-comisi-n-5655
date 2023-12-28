@@ -1,19 +1,26 @@
 [
   {
-    "id": "6979acef74b86802c504dff9",
+    "id": "07312b42fa7b1672cd5a6311",
     "name": "house1",
     "place": "urb",
-    "price": 10,
-    "capacity": 50,
-    "date": "2023-12-26T05:09:02.326Z"
+    "price": "$10",
+    "capacity": 40,
+    "date": "2023-12-27T05:15:08.589Z"
   },
-
   {
-    "id": "16eba6ea9691f626c825a7e5",
+    "id": "d02b6097ae14c78693c080e0",
     "name": "apt1",
     "place": "buildings",
     "price": "$60000",
-    "capacity": "5",
-    "date": "2023-12-26T05:16:56.564Z"
+    "capacity": 5,
+    "date": "2023-12-27T05:15:08.590Z"
+  },
+  {
+    "id": "42f13d29362e51286a2a2541",
+    "name": "mansion1",
+    "place": "mansions",
+    "price": "$500000",
+    "capacity": 20,
+    "date": "2023-12-27T05:15:08.590Z"
   }
 ]

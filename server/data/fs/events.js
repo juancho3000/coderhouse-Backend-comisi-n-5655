@@ -1,5 +1,5 @@
-const fs = require("fs")
-const crypto = require("crypto")
+import fs from "fs";
+import crypto from "crypto";
 class EventsManager {
     static #perGain = 0.3;
     static #totalGain = 0;
@@ -52,7 +52,7 @@ class EventsManager {
     //creating data - end
 
     //reading data - begining
-    readEevents() {
+    readEvents() {
         try{
             if(this.events.length === 0){
                 throw new Error("there is no data");
@@ -84,25 +84,6 @@ class EventsManager {
 }
 //reading single selected id data - begining
 
-/* //removeEvent, I just don't want to touch it
-async removeEventById(id){
-    try{
-        let one = this.events.find(each => each.id === id)
-        if(!one) {
-            throw new Error("there isn't any event to delete")
-        } else {
-           this.events = this.events.filter(each => each.id !== id);
-           const jsonData = JSON.stringify(this.events, null, 2);
-           await fs.promises.writeFile(this.path, jsonData);
-           console.log("deleted id:" + id);
-           return id;
-        }
-    }catch (error) {
-        console.log(error.message);
-        return error.message;
-    }
-}*/  //removeEvent, I just don't want to touch it
-
 //operation to sell tickets according to capacity - begining
 async soldTicket (qty, eventId) {
     try{
@@ -130,12 +111,12 @@ async soldTicket (qty, eventId) {
 //operation to sell tickets according to capacity - end
 
 }
-
+const events = new EventsManager("./server/data/fs/files/events.json");
+export default events;
 
 //events list - begining
 
-const events = new EventsManager("./server/data/fs/files/events.json");
-events.readEevents();
+/*events.readEevents();
 events.createEvent({name: "house1" , place: "urb"});
 events.createEvent({name: "apt1" , place: "buildings", price: "$60000", capacity: 5});
 events.createEvent({name: "mansion1", place: "mansions", price: "$500000", capacity: 20});
@@ -143,7 +124,25 @@ events.readEevents();
 events.readEeventById(3);
 events.readEeventById("42f13d29362e51286a2a2541");
 //events.removeEventById("42f13d29362e51286a2a2541")
-events.soldTicket(10, "07312b42fa7b1672cd5a6311");
+events.soldTicket(10, "07312b42fa7b1672cd5a6311");*/
 
 //events list - begining
 
+/* //removeEvent, I just don't want to touch it
+async removeEventById(id){
+    try{
+        let one = this.events.find(each => each.id === id)
+        if(!one) {
+            throw new Error("there isn't any event to delete")
+        } else {
+           this.events = this.events.filter(each => each.id !== id);
+           const jsonData = JSON.stringify(this.events, null, 2);
+           await fs.promises.writeFile(this.path, jsonData);
+           console.log("deleted id:" + id);
+           return id;
+        }
+    }catch (error) {
+        console.log(error.message);
+        return error.message;
+    }
+}*/  //removeEvent, I just don't want to touch it

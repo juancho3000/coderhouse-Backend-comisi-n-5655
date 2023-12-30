@@ -13,14 +13,40 @@ class UserManagerSecond{
             email: data.email,
             date : data.date || new Date()
         }
-        UserManagerSecond.events.push(eventProduct)
+        UserManagerSecond.events.push(eventProduct);
+        return eventProduct;
     }
     read(){
         return UserManagerSecond.events
     }
+
+    read(){
+        return UserManagerSecond.events
+    }
+
+    readOne(id){
+        try{
+            const userById = UserManagerSecond.events.find((each) => 
+            each.id === Number(id))
+            if(userById){
+                return userById
+            }else{
+                throw new Error ("no users with ID:" + id)
+            }
+        }catch(error){
+            return error.message
+        }
+    }
+
 }
 
-const fs = require("fs")
+const user = new UserManagerSecond() ;
+let users = user.read() ; users = user.read();
+const one = user.readOne(1);
+const threeId = user.readOne(3)
+console.log("mensaje de readOne",one, threeId)
+
+import fs from "fs"
 const ruta = "./server/data/fs/files/eventsUserManager.json";
 const conetnt = JSON.stringify(
     [
@@ -48,3 +74,13 @@ fs.promises
 .readFile(ruta, configuracion)
 .then(res => console.log("userManager2",JSON.parse(res)))
 .catch(err => console.log(err));
+
+const UserManagerExistance = fs.existsSync(ruta)
+console.log("UserManager existe:", UserManagerExistance);
+
+/* eliminar archivo "const ruta" de forma sincrona
+fs.promises
+.unlink(ruta)
+.then((res) => console.log(res))
+.catch((error) => console.log(error));
+*/

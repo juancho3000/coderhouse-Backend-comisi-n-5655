@@ -34,6 +34,33 @@ server.get("/api/events", (req, res) => {
     }
 })
 
+server.get("/list", (req, res) => {
+    try{
+        const listData =2 /*[
+            {name: "juan", id: 1, job: "engineer"},
+            {name: "carlos", id: 1, job: "doctor"},
+            {name: "beliana", id: 1, job: "lawyer"},
+        ];*/
+        if(Array.isArray(listData)){
+            return res.status(200).json({
+                success: true,
+                responsse: listData,
+            });
+        } else {
+            return res.status(404).json({
+                success: false,
+                message: "there is no data"
+            })
+        }
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: error.message,
+        })
+    }
+})
+
 server.get("/api/events/:eid", (req, res) => {
     const {eid} = req.params;
     const oneId = events.readEeventById(eid);

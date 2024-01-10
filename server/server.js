@@ -87,10 +87,9 @@ server.get("/api/products/:eid", async (req, res) => {
     };
 });
 
-/*server.put("/api/products/:eid/:quantity", async (req, res) => {
+server.put("/api/products/:eid/:quantity", async (req, res) => {
     try {
-        const {eid, quantity} = req.params
-        const twoParams = await 
+      
     } catch (error) {
         console.log(error);
         return res.json({
@@ -98,7 +97,7 @@ server.get("/api/products/:eid", async (req, res) => {
             message: error.message,
         });
     }
-})*/
+})
 
 server.get("/list", (req, res) => {
     try {

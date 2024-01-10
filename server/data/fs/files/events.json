@@ -20,15 +20,7 @@
     "name": "mansion1",
     "place": "mansions",
     "price": "$500000",
-    "capacity": 20,
+    "capacity": 10,
     "date": "2023-12-27T05:15:08.590Z"
-  },
-  {
-    "id": "ba6622470ba856dd972806dd",
-    "name": "mall",
-    "place": "shopping",
-    "price": "$10",
-    "capacity": 50,
-    "date": "2024-01-09T05:13:47.787Z"
   }
 ]

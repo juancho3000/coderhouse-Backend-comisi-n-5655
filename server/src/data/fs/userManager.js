@@ -1,8 +1,6 @@
 import fs from "fs";
 import crypto from "crypto";
-class EventsManager {
-  static #perGain = 0.3;
-  static #totalGain = 0;
+class UserManager {
   //events = []
   init() {
     try {
@@ -27,15 +25,13 @@ class EventsManager {
   //creating data - begining
   async createEvent(data) {
     try {
-      if (!data.name || !data.place) {
-        throw new Error("name and place are obligatory");
-      }
       const event = {
         id: crypto.randomBytes(12).toString("hex"),
         name: data.name,
         place: data.place,
-        price: data.price || "$" + 10,
-        capacity: data.capacity || 50,
+        img: data.img,
+        email: data.email,
+        phone: data.phone,
         date: data.date || new Date(),
       };
       this.events.push(event);
@@ -104,39 +100,13 @@ class EventsManager {
   }
   //deleteEventById
 
-  //operation to sell tickets according to capacity - begining
-  async soldTicket(quantity, eid) {
-    try {
-      const one = this.readEventById(eid);
-      if (one) {
-        if (one.capacity >= quantity) {
-          one.capacity = one.capacity - quantity;
-          EventsManager.#totalGain =
-            EventsManager.#totalGain +
-            one.price * quantity * EventsManager.#perGain;
-
-          const jsonData = JSON.stringify(this.events, null, 2);
-          await fs.promises.writeFile(this.path, jsonData);
-          console.log("capacity available:" + one.capacity);
-          return one.capacity;
-        } else {
-          throw new Error("Capacity isn't enough");
-        }
-      } else {
-        throw new Error("There isn't any product");
-      }
-    } catch (error) {
-      console.log("no product sold", error.message);
-      return error.message;
-    }
-  }
-  //operation to sell tickets according to capacity - end
+ 
 }
-const events = new EventsManager("./server/data/fs/files/events.json");
-const route = "./server/data/fs/files/events.json";
+const userEvents = new UserManager("./server/src/data/fs/files/userManager.json");
+const route = "./server/src/data/fs/files/userManager.json";
 let config = "utf-8";
 fs.promises
   .readFile(route, config)
   .then((res) => console.log("read events is:", JSON.parse(res)))
   .catch((err) => console.log("error promise read" + err));
-export default events;
+export default userEvents;

@@ -3,12 +3,12 @@ import morgan from "morgan";
 import { engine } from "express-handlebars";
 import { Server } from "socket.io";
 import {createServer} from "http";
-import events from "./src/data/fs/events.js";
 
 import router from "./src/routers/index.routers.js"
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
 import __dirname from "./utils.js";
+import socketUtils from "./src/utils/socket.utils.js";
 
 //server
 const server = express();
@@ -17,20 +17,7 @@ const callBack = console.log("servidor listo ahora mismo en puerto:" + PORT);
 const httpServer = createServer(server);
 const socketServer = new Server(httpServer);
 httpServer.listen(PORT, callBack);
-socketServer.on("connection", (socket) => {
-    console.log("socket id:",socket.id);
-    socket.emit("welcome", "welcome to Worldsthenics")
-    socket.emit("productsList" , events.readEvents())
-    socket.on("new product added", async (data) =>{
-        try{
-        console.log("added:",data);
-         await events.createEvent(data)
-         socket.emit("product added success", "added succesfully")
-        } catch (error) {
-            console.log("product added error:",error);   
-        }
-    })
-});
+socketServer.on("connection", socketUtils);
 //server
 
 //templates
@@ -51,3 +38,5 @@ server.use("/", router);
 server.use(errorHandler);
 server.use(pathHandler);
 //endpoints
+
+export {socketServer};

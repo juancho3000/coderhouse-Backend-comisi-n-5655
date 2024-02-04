@@ -29,7 +29,7 @@ class UserManager {
         id: crypto.randomBytes(12).toString("hex"),
         name: data.name,
         place: data.place,
-        img: data.img,
+        img: data.img || "https://t3.ftcdn.net/jpg/01/65/63/94/360_F_165639425_kRh61s497pV7IOPAjwjme1btB8ICkV0L.jpg",
         email: data.email,
         phone: data.phone,
         date: data.date || new Date(),
@@ -68,7 +68,7 @@ class UserManager {
     try {
       const one = this.events.find((each) => each.id === id);
       if (!one) {
-        throw new Error("no events found with id:" + id);
+        throw new Error("no users found with id:" + id);
       } else {
         console.log("read event id:" + id);
         return one;

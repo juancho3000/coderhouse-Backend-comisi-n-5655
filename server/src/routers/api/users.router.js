@@ -1,29 +1,20 @@
 import { Router } from "express";
 import userEvents from "../../data/fs/userManager.js";
+import propsProducts from "../../middlewares/propsProducts.mid.js";
+
 const usersRouter = Router();
 
-usersRouter.post("/", async(req, res) => {
+usersRouter.post("/",  propsProducts,async(req, res) => {
     try {
         const data = req.body;
         const response = await userEvents.createEvent(data);
-        if (response === "name and place are obligatory") {
-          return res.json({
-            statusCode: 400,
-            message: response,
-          });
-        } else {
-          return res.json({
-            statusCode: 201,
-            message: "successfully created",
-            response,
-          });
-        }
-      } catch (error) {
-        console.log(error);
         return res.json({
-          statusCode: 500,
-          message: error.message,
+          statusCode: 201,
+          message: "successfully created",
+          response,
         });
+      } catch (error) {
+       return next(error);
       }
 })
 

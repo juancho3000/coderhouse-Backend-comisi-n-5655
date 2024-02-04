@@ -4,9 +4,9 @@
   "description": "",
   "type": "module",
   "main": "server.js",
-  "scripts": {
-    "start": "node /home/juan/coderhouse-backend-Comisión-55655/server/src/data/fs/files/events.json",
-    "dev": "nodemon /home/juan/coderhouse-backend-Comisión-55655/server/server.js"
+  "scripts": { 
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
   },
   "keywords": [],
   "author": "",

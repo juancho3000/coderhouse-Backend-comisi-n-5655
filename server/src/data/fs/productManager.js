@@ -56,21 +56,24 @@ class ProductManagerSecond{
     }
 }
 /*
-const user = new ProductManagerSecond() ;
-let users = user.read();
+
 console.log(users);
 const user1 =user.create({title:"peter", photo: "photo1", stock:15, locality: "place1"})
 const user2 =user.create({title:"andres", photo: "photo2", stock:25, locality: "place2"})
 const user3 =user.create({title:"john", photo: "photo3", stock:5, locality: "place3"})
 console.log("viendo usuarios",user1, user2, user3)
-users = user.read();
+
 console.log("mensaje de users",users);
+
+*/
+const user = new ProductManagerSecond() ;
+let users = user.read() ; users = user.read();
 const one = user.readOne(1);
 const threeId = user.readOne(3)
-console.log("mensaje de readOne",one, threeId)*/
+console.log("mensaje de readOne",one, threeId)
 
-const fs = require("fs")
-const ruta = "./segunda-entrega/eventsProductManager.json";
+import fs from "fs";
+const ruta = "./server/data/fs/files/eventsProductManager.json";
 const events = new ProductManagerSecond
 const conetnt = JSON.stringify(
     [
@@ -91,6 +94,14 @@ const conetnt = JSON.stringify(
     ],null,2
 )
 
+/* eliminar archivo "const ruta" de forma sincrona
+fs.promises
+.unlink(ruta)
+.then((res) => console.log(res))
+.catch((error) => console.log(error));
+*/
+
+
 fs.promises
 .writeFile(ruta, conetnt)
 .then(res => console.log("mensaje res",res))
@@ -100,6 +111,9 @@ fs.promises
 let configuracion = "utf-8";
 fs.promises
 .readFile(ruta, configuracion)
-.then(res => console.log("productManager2",JSON.parse(res, )))
+.then(res => console.log("productManager2",JSON.parse(res)))
 .catch(err => console.log(err));
-//console.log(events.read)*/
+console.log(events.read)
+
+const productManagerExistance = fs.existsSync(ruta)
+console.log("productManager existe:", productManagerExistance);
